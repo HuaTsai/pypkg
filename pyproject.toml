@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypkg"
+dynamic = ["version"]
+description = "A modern Python package sample demonstrating standard practices."
+authors = [{ name = "HuaTsai", email = "huatsai42@gmail.com" }]
+license = { text = "MIT License" }
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+Repository = "https://github.com/HuaTsai/pypkg.git"
+
+[tool.setuptools.dynamic]
+version = { attr = "pypkg.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["pypkg/tests"]
+addopts = ["--verbose"]
+
+[tool.ruff]
+line-length = 100
+lint.extend-select = ["E", "W", "F", "I", "C", "B", "N", "UP", "ANN"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint.flake8-annotations]
+suppress-none-returning = true
