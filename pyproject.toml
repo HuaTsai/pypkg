@@ -18,6 +18,9 @@ dev = ["pytest", "ruff"]
 [project.urls]
 Repository = "https://github.com/HuaTsai/pypkg.git"
 
+[tool.setuptools]
+packages = ["pypkg"]
+
 [tool.setuptools.dynamic]
 version = { attr = "pypkg.__version__" }
 
